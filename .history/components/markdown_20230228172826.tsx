@@ -20,7 +20,7 @@ const components: Parameters<typeof ReactMarkdown>[0]["components"] = {
     />
   ),
   p: ({ node, className, ...props }) => (
-    <h3 style={{maxWidth: '550px', display: 'block', margin: '0 auto'}} className={classNames("my-4", className)} {...props} />
+    <h3 style={{maxWidth: '500px', display: 'block'}} className={classNames("my-4", className)} {...props} />
   ),
   ul: ({ node, className, ordered, ...props }) => (
     <ul className={classNames("my-4 pl-8 list-disc", className)} {...props} />

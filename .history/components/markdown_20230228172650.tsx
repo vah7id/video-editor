@@ -5,6 +5,7 @@ import { Link } from "./link";
 const components: Parameters<typeof ReactMarkdown>[0]["components"] = {
   h2: ({ node, className, ...props }) => (
     <h2
+      style={{maxWidth: '400px'}}
       className={classNames("my-4 text-2xl font-semibold", className)}
       {...props}
     />
@@ -20,7 +21,7 @@ const components: Parameters<typeof ReactMarkdown>[0]["components"] = {
     />
   ),
   p: ({ node, className, ...props }) => (
-    <h3 style={{maxWidth: '550px', display: 'block', margin: '0 auto'}} className={classNames("my-4", className)} {...props} />
+    <p className={classNames("my-4", className)} {...props} />
   ),
   ul: ({ node, className, ordered, ...props }) => (
     <ul className={classNames("my-4 pl-8 list-disc", className)} {...props} />

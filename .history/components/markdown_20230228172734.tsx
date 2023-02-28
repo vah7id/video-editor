@@ -11,7 +11,9 @@ const components: Parameters<typeof ReactMarkdown>[0]["components"] = {
   ),
   a: ({ node, className, href, ...props }) => (
     <Link
-      className={classNames(
+    style={{maxWidth: '400px !important'}}
+
+    className={classNames(
         "my-4 text-red-700 dark:text-red-300 hover:text-red-500",
         className
       )}
@@ -20,7 +22,7 @@ const components: Parameters<typeof ReactMarkdown>[0]["components"] = {
     />
   ),
   p: ({ node, className, ...props }) => (
-    <h3 style={{maxWidth: '550px', display: 'block', margin: '0 auto'}} className={classNames("my-4", className)} {...props} />
+    <p className={classNames("my-4", className)} {...props} />
   ),
   ul: ({ node, className, ordered, ...props }) => (
     <ul className={classNames("my-4 pl-8 list-disc", className)} {...props} />

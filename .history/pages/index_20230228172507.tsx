@@ -90,7 +90,7 @@ export default function Start() {
               {t("upload.title")}
             </h1>
             <div style={{color: "#aaa"}} className="text-center motion-safe:animate-fly-2">
-              <Markdown>{t("upload.description")}</Markdown>
+              <Markdown >{t("upload.description")}</Markdown>
               <input
                 type="file"
                 id="file"
@@ -117,7 +117,7 @@ export default function Start() {
               </label>
               <p style={{fontSize: '12px', textTransform: 'uppercase', color: '#aaa', margin: '20px 0'}}>
                 Or Drag & Drop you video file here!<br />
-                <small><b>* PS. We do not store any file on our server :) Read <Link style={{color: 'lightblue'}} href="/terms">Terms & Conditions</Link></b></small>
+                <small><bold>* PS. We do not store any file on our server :) Read <Link style={{color: 'lightblue'}} href="/terms">Terms & Conditions</Link></bold></small>
               </p>
 
               <p

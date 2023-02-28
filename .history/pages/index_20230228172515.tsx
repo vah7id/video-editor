@@ -90,7 +90,7 @@ export default function Start() {
               {t("upload.title")}
             </h1>
             <div style={{color: "#aaa"}} className="text-center motion-safe:animate-fly-2">
-              <Markdown>{t("upload.description")}</Markdown>
+              <Markdown >{t("upload.description")}</Markdown>
               <input
                 type="file"
                 id="file"
