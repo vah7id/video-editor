@@ -32,7 +32,9 @@ export function Page_footer() {
           <li>
             <Link href={'/'}>Home</Link>
           </li>
-      
+          <li>
+            <Link href={'/'}>How it works?</Link>
+          </li>
           <li>
             <Link href={'/terms'}>Terms & Conditions</Link>
           </li>
