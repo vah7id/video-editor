@@ -34,7 +34,7 @@ export type MarkdownProps = Omit<
 
 export function Markdown({ children, ...props }: MarkdownProps) {
   return (
-    <ReactMarkdown  components={components} {...props}>
+    <ReactMarkdown components={components} {...props}>
       {children}
     </ReactMarkdown>
   );

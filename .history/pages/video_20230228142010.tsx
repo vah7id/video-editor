@@ -39,7 +39,6 @@ import {
 } from "../src/video_convert_format";
 import Image from "next/image";
 import logo1 from '../public/logo1.png';
-import Link from "next/link";
 
 export default function VideoPage() {
   const [video] = useContext(VideoContext);
@@ -310,41 +309,14 @@ function ConvertPage({
   return (
     <>
       <Head>
-      <title>Video Trimmer online Tool – Trim Cut and compress Video file</title>
-        <meta charSet={"utf-8"} />
-        <meta name="description" content={t("upload.description")} />
-        <meta name="og:title" content={t("upload.title")} />
-        <meta name="og:description" content={t("upload.description")} />
-       
-        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-    
-        <link rel="shortcut icon" href="https:/viddeo.app/favicon.ico" />
-        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
-        <meta name="description" content="Video trimmer enables you to trim (extract part of a video) and cut video (remove part of a video somewhere in the middle). Supported formats: MP4, MOV, WEBM, MKV etc." />
-          <meta property="og:site_name" content="Video Candy" />
-          <meta property="og:image" content={`https:/viddeo.app/logo1.png`} />
-          <meta property="og:title" content="Video Trimmer – Trim and Cut Video Online" />
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://viddeo.app" />
-          <meta property="og:description" content="Video trimmer enables you to trim (extract part of a video) and cut video (remove part of a video somewhere in the middle). Supported formats: MP4, MOV, WEBM, etc." />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content="@scfetch" />
-          <meta name="twitter:creator" content="@scfetch" />
-          <meta name="twitter:title" content="Video Trimmer – Trim and Cut Video Online" />
-          <meta name="twitter:description" content="Video trimmer enables you to trim (extract part of a video) and cut video (remove part of a video somewhere in the middle). Supported formats: MP4, MOV, WEBM, etc." />
-          <meta name="twitter:image:src" content={`https:/viddeo.app/logo1.png`} />
-          <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <meta name="language" content="en" />
-          <link rel="canonical" href="https://viddeo.app"></link>
+        <title>{t("conversion.title", { name: source.file.name })}</title>
+        <meta name="robots" content="noindex" />
       </Head>
       <div className="widescreen:min-h-screen container mx-auto flex flex-col justify-center">
         
-        <Link href={'/'}><Image src={logo1} style={{cursor: 'pointer',maxWidth: '250px',display: 'block',position: 'relative',float: 'left',minWidth: '200px', margin: '0 auto 0px auto !important'}} alt="video trimmer compressor tool logo" /></Link>
+        <Image src={logo1} style={{cursor: 'pointer',position: 'relative',float: 'left',minWidth: '200px', margin: '0 auto 0px auto !important'}} alt="video trimmer compressor tool logo" />
 
         <form
-          style={{borderBottom: '1px solid #ddd',
-            paddingBottom: '100px'}}
           className="flex flex-wrap justify-center"
           onSubmit={handleSubmit(start)}
         >
@@ -357,7 +329,7 @@ function ConvertPage({
               rules={{ minLength: 1 }}
               render={({ field: { ref, ...field } }) => (
                 <VideoTimeline
-                  className="max-h-[80vh] lg:max-h-screen py-2 lg:py-8 sticky top-0"
+                  className="max-h-[80vh] lg:max-h-screen py-2 lg:py-16 sticky top-0"
                   frame={source.metadata.container}
                   width={source.metadata.video.width}
                   height={source.metadata.video.height}

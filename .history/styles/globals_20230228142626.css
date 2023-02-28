@@ -82,17 +82,6 @@ video {
   padding: 12px;
 }
 
-footer ul{
-  margin-top: 100px;
-  flex-direction: row;
-  align-items: center;
-}
-
 footer li{
-  margin-bottom: 4px;
-  font-size: 12px !important;
-}
-
-footer li a:hover {
-  color: #222;
+  display: inline-block;
 }

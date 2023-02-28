@@ -43,9 +43,8 @@ export default function Start() {
         <meta name="description" content={t("upload.description")} />
         <meta name="og:title" content={t("upload.title")} />
         <meta name="og:description" content={t("upload.description")} />
-       
-        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     
         <link rel="shortcut icon" href="https:/viddeo.app/favicon.ico" />
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
@@ -55,23 +54,17 @@ export default function Start() {
           <meta property="og:title" content="Video Trimmer – Trim and Cut Video Online" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://viddeo.app" />
-          <meta property="og:description" content="Video trimmer enables you to trim (extract part of a video) and cut video (remove part of a video somewhere in the middle). Supported formats: MP4, MOV, WEBM, etc." />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content="@scfetch" />
-          <meta name="twitter:creator" content="@scfetch" />
-          <meta name="twitter:title" content="Video Trimmer – Trim and Cut Video Online" />
-          <meta name="twitter:description" content="Video trimmer enables you to trim (extract part of a video) and cut video (remove part of a video somewhere in the middle). Supported formats: MP4, MOV, WEBM, etc." />
+          <meta property="og:description" content="Video trimmer enables you to trim (extract part of a video) and cut video (remove part of a video somewhere in the middle). Supported formats: MP4, MOV, WEBM, etc."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@videocandytools"><meta name="twitter:creator" content="@videocandytools"><meta name="twitter:title" content="Video Trimmer – Trim and Cut Video Online"><meta name="twitter:description" content="Video trimmer enables you to trim (extract part of a video) and cut vid" />
           <meta name="twitter:image:src" content={`https:/viddeo.app/logo1.png`} />
-          <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <meta name="language" content="en" />
-          <link rel="canonical" href="https://viddeo.app"></link>
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+          <meta name="language" content="en"><link rel="canonical" href="https://viddeo.app"></link>
         <JsonLd<SoftwareApplication>
           item={{
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             name: "Clip",
             url: `${process.env.NEXT_PUBLIC_HOST}/`,
-            image: `https://viddeo.app/logo1.png`,
+            image: `${process.env.NEXT_PUBLIC_HOST}/logo1.png`,
             description: t("upload.description"),
             applicationCategory: "MultimediaApplication",
             operatingSystem: "Any",

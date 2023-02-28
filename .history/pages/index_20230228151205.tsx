@@ -44,8 +44,8 @@ export default function Start() {
         <meta name="og:title" content={t("upload.title")} />
         <meta name="og:description" content={t("upload.description")} />
        
-        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     
         <link rel="shortcut icon" href="https:/viddeo.app/favicon.ico" />
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />

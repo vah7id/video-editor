@@ -89,10 +89,6 @@ footer ul{
 }
 
 footer li{
-  margin-bottom: 4px;
+  margin-right: 12px;
   font-size: 12px !important;
-}
-
-footer li a:hover {
-  color: #222;
 }

@@ -44,9 +44,6 @@ export function Page_footer() {
           <li>
             <Link href={'/'}>Video Compressor</Link>
           </li>
-          <li>
-            <Link href={'/'}>Send Feedback</Link>
-          </li>
         
         </ul>
         <Image style={{ display: 'block',  textAlign: 'center', margin: '20px auto'}} src={nlf} width={24} alt={'nl flag'} />

@@ -36,9 +36,6 @@ export function Page_footer() {
             <Link href={'/'}>How it works?</Link>
           </li>
           <li>
-            <Link href={'/'}>Terms & Conditions</Link>
-          </li>
-          <li>
             <Link href={'/'}>Video Trimmer</Link>
           </li>
           <li>
@@ -47,12 +44,14 @@ export function Page_footer() {
           <li>
             <Link href={'/'}>Send Feedback</Link>
           </li>
-        
+          <li>
+            <Link href={'/'}>Donate</Link>
+          </li>
         </ul>
         <Image style={{ display: 'block',  textAlign: 'center', margin: '20px auto'}} src={nlf} width={24} alt={'nl flag'} />
         <p style={{display: 'block', textDecoration: 'underline', width: '100%', fontSize: '11px', color: '#ccc'}}>
           MADE W LOVE IN AMS XXX<br />
-          CPYWRT @2023 ALL RIGHTS RESERVED ( Ver1.1.42 )
+          CPYWRT @2023 ALL RIGHTS RESERVED
         </p>
       </footer>
     </div>

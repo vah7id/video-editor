@@ -6,8 +6,7 @@ import { TranslateIcon } from "./icons";
 import { Link } from "./link";
 import NextLink from "next/link";
 import { ForwardedRef, forwardRef } from "react";
-import Image from "next/image";
-import nlf  from '../public/nl.png';
+
 const FLink = forwardRef(function FooterLink(
   props: Omit<Parameters<typeof Link>[0], "className">,
   ref: ForwardedRef<HTMLAnchorElement>
@@ -26,17 +25,14 @@ export function Page_footer() {
   const [matomoEnabled, setMatomoEnabled] = useLocalStorage("matomo", true);
 
   return (
-    <div className="mt-2  pb-8 bg-slate-50print:min-h-0" style={{maxWidth:'768px', display: 'block',  textAlign: 'center', margin: '0 auto'}}>
+    <div className="mt-2  pb-8 bg-slate-50print:min-h-0" style={{maxWidth:'768px', display: 'block', margin: '0 auto'}}>
       <footer>
-        <ul style={{textTransform: 'uppercase', textAlign: 'center', color: '#cacaca'}}>
+        <ul style={{textTransform: 'uppercase', textAlign: 'center', color: '#ccc'}}>
           <li>
             <Link href={'/'}>Home</Link>
           </li>
           <li>
             <Link href={'/'}>How it works?</Link>
-          </li>
-          <li>
-            <Link href={'/'}>Terms & Conditions</Link>
           </li>
           <li>
             <Link href={'/'}>Video Trimmer</Link>
@@ -47,12 +43,12 @@ export function Page_footer() {
           <li>
             <Link href={'/'}>Send Feedback</Link>
           </li>
-        
+          <li>
+            <Link href={'/'}>Donate</Link>
+          </li>
         </ul>
-        <Image style={{ display: 'block',  textAlign: 'center', margin: '20px auto'}} src={nlf} width={24} alt={'nl flag'} />
-        <p style={{display: 'block', textDecoration: 'underline', width: '100%', fontSize: '11px', color: '#ccc'}}>
-          MADE W LOVE IN AMS XXX<br />
-          CPYWRT @2023 ALL RIGHTS RESERVED ( Ver1.1.42 )
+        <p>
+
         </p>
       </footer>
     </div>
