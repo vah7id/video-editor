@@ -53,7 +53,7 @@ export function Page_footer() {
           MADE W LOVE IN AMS XXX<br />
           CPYWRT @2023 ALL RIGHTS RESERVED ( Ver1.1.42 )
         </p>
-        <p style={{width: '100%', fontSize: '10px !important', color: '#fafafa'}}>
+        <p style={{width: '100%', fontSize: '10px !important', color: '#fff'}}>
 video trimmer online free /
 video cutter online converter /
 youtube video cutter online /
