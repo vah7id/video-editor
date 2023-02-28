@@ -64,6 +64,7 @@ export default function Start() {
           <meta name="twitter:image:src" content={`https:/viddeo.app/logo1.png`} />
           <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
           <meta name="language" content="en" />
+          <link rel="canonical" href="https://viddeo.app"></link>
         <JsonLd<SoftwareApplication>
           item={{
             "@context": "https://schema.org",

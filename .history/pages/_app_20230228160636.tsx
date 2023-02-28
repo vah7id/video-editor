@@ -102,7 +102,7 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-          ga('create', 'G-9S7PGDK85T', 'auto');
+          ga('create', 'UA-XXXXX-Y', 'auto');
           ga('send', 'pageview');
         `}
       </Script>
