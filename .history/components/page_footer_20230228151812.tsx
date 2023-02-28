@@ -76,17 +76,8 @@ online video editor /
         Video editing online: The app can cut video files right in your browser window. Files of up to 4 GB are supported, and we are about to raise this limit.
         </p>
         <p style={{width: '100%', fontSize: '10px !important', color: '#fff'}}>
-        Any format you can think of: The app supports almost every video format out there. If your file fails to open, then it is probably damaged or it is too big.
-        <br />
-        Format-specific tools 
-GIF Cutter 
-Cut MKV 
-MOV Cutter 
-Trim WEBM 
-WMV Cutter 
-Trim MPEG  
-ASF Cutter 
-
+        Any format you can think of
+The app supports almost every video format out there. If your file fails to open, then it is probably damaged or it is too big.
         </p>
       </footer>
     </div>

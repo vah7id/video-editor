@@ -53,41 +53,7 @@ export function Page_footer() {
           MADE W LOVE IN AMS XXX<br />
           CPYWRT @2023 ALL RIGHTS RESERVED ( Ver1.1.42 )
         </p>
-        <p style={{width: '100%', fontSize: '10px !important', color: '#fff'}}>
-video trimmer online free /
-video cutter online converter /
-youtube video cutter online /
-trim large video online free /
-video trimmer download /
-youtube video trimmer /
-video trimmer free /
-online video editor /
-        </p>
-        <p style={{width: '100%', fontSize: '10px !important', color: '#fff'}}>
-        Online Video Cutter: This web app comes in handy when you need to cut a small video file. It does not require installation, and it works in your browser.
-        </p>
-        <p style={{width: '100%', fontSize: '10px !important', color: '#fff'}}>
-        Crop video: Cropping allows you to frame the video to the desired area or change frame proportions.
-        </p>
-        <p style={{width: '100%', fontSize: '10px !important', color: '#fff'}}>
-        Easy video trimming: After uploading your file, you can choose the quality and format of the output file. There are no complicated controls — every feature is just one or two clicks away.
-        </p>
-        <p style={{width: '100%', fontSize: '10px !important', color: '#fff'}}>
-        Video editing online: The app can cut video files right in your browser window. Files of up to 4 GB are supported, and we are about to raise this limit.
-        </p>
-        <p style={{width: '100%', fontSize: '10px !important', color: '#fff'}}>
-        Any format you can think of: The app supports almost every video format out there. If your file fails to open, then it is probably damaged or it is too big.
-        <br />
-        Format-specific tools 
-GIF Cutter 
-Cut MKV 
-MOV Cutter 
-Trim WEBM 
-WMV Cutter 
-Trim MPEG  
-ASF Cutter 
-
-        </p>
+        <p style={{width: '100%', fontSize: '10px !important', color: #fff}}></p>
       </footer>
     </div>
   );
