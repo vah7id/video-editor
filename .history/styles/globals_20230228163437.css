@@ -26,7 +26,7 @@
 
 body,html{
   background: #fafafa !important;
-  color: #222 !important;
+  color: #222;
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Space+Grotesk&display=swap');
 
