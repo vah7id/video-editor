@@ -16,12 +16,8 @@
 /*}*/
 
 @media (min-width: 1024px){
-  .container {
-      max-width: 920px;
-  }
-  .lg\:py-16{
-    padding-top: 2rem !important;
-  }
+.container {
+    max-width: 920px;
 }
 
 body {
@@ -32,7 +28,6 @@ body {
 button, body {
   font-family: "Space Grotesk","Roboto",Verdana,Arial,sans-serif !important;
 }
-
 
 @tailwind base;
 @tailwind components;

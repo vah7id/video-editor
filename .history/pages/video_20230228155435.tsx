@@ -9,7 +9,7 @@ import {
 } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Button } from "../components/button";
-import { AddFileIcon, BoltIcon, DownloadIcon, Spinner } from "../components/icons";
+import { BoltIcon, DownloadIcon, Spinner } from "../components/icons";
 import { ProgressBar } from "../components/progress";
 import {
   AudioFormatSelect,
@@ -434,10 +434,9 @@ function ConvertPage({
 
               <Button
                 href="/"
-                style={{width: '100%', textAlign: 'center'}}
+                style={{width: '100%'}}
                 className="px-4 py-2  bg-slate-500 hover:bg-slate-400 text-white"
               >
-                <AddFileIcon className="align-bottom mr-2 -ml-1" />
                 {t("conversion.button.change")}
               </Button>
             </div>
