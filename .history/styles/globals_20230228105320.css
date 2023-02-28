@@ -1,0 +1,81 @@
+/*html,*/
+/*body {*/
+/*  padding: 0;*/
+/*  margin: 0;*/
+/*  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,*/
+/*    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;*/
+/*}*/
+
+/*a {*/
+/*  color: inherit;*/
+/*  text-decoration: none;*/
+/*}*/
+
+/** {*/
+/*  box-sizing: border-box;*/
+/*}*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Space+Grotesk&display=swap');
+
+button, body {
+  font-family: "Space Grotesk","Roboto",Verdana,Arial,sans-serif !important;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Chrome, Safari, Edge, Opera */
+  .no-arrows::-webkit-outer-spin-button,
+  .no-arrows::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  .no-arrows[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+* {
+  @apply border-neutral-200 dark:border-neutral-700;
+  @apply ring-red-500 ring-offset-1 dark:ring-offset-neutral-900;
+}
+
+*:focus-visible:not([style*="outline:"]) {
+  @apply ring outline-none;
+}
+
+::selection {
+  @apply bg-red-100 dark:bg-red-900;
+}
+
+body {
+  @apply text-neutral-800 dark:bg-neutral-800 dark:text-white;
+}
+
+button {
+  border-radius: 0 !important;
+  background: rgb(248, 210, 49) !important;
+  color: black !important;
+  text-transform: uppercase;
+}
+
+video {
+  background: #222 !important;
+}
+.leading-4{
+  text-transform: uppercase;
+  line-height: 2rem;
+
+}
+.text-lime-600 {
+  color: #999 !important
+}
+.text-neutral-800 {
+  padding: 12px;
+  color: rgb(38 38 38 / var(--tw-text-opacity));
+  border: 1px solid #fff;
+}
