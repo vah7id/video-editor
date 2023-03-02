@@ -23,7 +23,7 @@ export default function Start() {
   const { pathname } = useRouter();
 
   useEffect(() => {
-    gtag('G-9S7PGDK85T');
+    gtag('G-9S7PGDK85T')
     ensureFreshFfmpegInstance((e) => setError(String(e)));
     Router.prefetch("/video").catch(console.error);
   }, []);

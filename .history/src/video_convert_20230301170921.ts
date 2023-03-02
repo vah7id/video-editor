@@ -50,7 +50,7 @@ export function createCommands(
       throw new Error(`Unsupported audio codec: ${instructions.audio.codec}`);
     }
    if(effectName) {
-  //  args.push('-vf')
+    args.push('-vf')
 //      args.push('-vf eq=contrast=1000.0')
     }
     args.push("-f", "mp4"); // use mp4 since it has the best compatibility as long as all streams are supported
@@ -363,12 +363,9 @@ function h264Arguments(source: Format, target: ConvertInstructions) {
     `fps=${target.video.fps}`,
     ...cropScaleFilter(source, target),
     `format=${target.video.color}`,
-    `brightness=0.5`
   ];
 
   args.push("-vf", filter.join(","));
-  //args.push("-vf", 'eq=contrast=1000.0');
-   console.log()
   args.push("-c:v", "libx264");
   args.push("-preset:v", isLargeTarget ? "fast" : "medium");
   // args.push('-level:v', '4.0'); // https://en.wikipedia.org/wiki/Advanced_Video_Coding#Levels

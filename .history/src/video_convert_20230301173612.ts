@@ -166,7 +166,7 @@ export async function convertVideo(
   }
 
   const { file: fileName, type } = commands[commands.length - 1];
-  const uint8Array = instance!.FS("readFile", fileName);
+  const uint8Array = await instance!.FS("readFile", fileName);
   const file = new File([uint8Array], fileName, { type: type });
 
   for (const command of commands) {
@@ -355,6 +355,8 @@ function h264Arguments(source: Format, target: ConvertInstructions) {
   const isLargeTarget = target.video.width * target.video.height > 500_000;
 
   if (target.video.original) {
+    args.push("-vf");
+    args.push("eq","contrast=1000")
     args.push("-c:v", "copy");
     return args;
   }
@@ -363,12 +365,12 @@ function h264Arguments(source: Format, target: ConvertInstructions) {
     `fps=${target.video.fps}`,
     ...cropScaleFilter(source, target),
     `format=${target.video.color}`,
-    `brightness=0.5`
   ];
 
   args.push("-vf", filter.join(","));
   //args.push("-vf", 'eq=contrast=1000.0');
-   console.log()
+   console.log(filter.join(","))
+   console.log('=========')
   args.push("-c:v", "libx264");
   args.push("-preset:v", isLargeTarget ? "fast" : "medium");
   // args.push('-level:v', '4.0'); // https://en.wikipedia.org/wiki/Advanced_Video_Coding#Levels

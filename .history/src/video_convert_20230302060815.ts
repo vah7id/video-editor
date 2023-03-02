@@ -363,7 +363,7 @@ function h264Arguments(source: Format, target: ConvertInstructions) {
     `fps=${target.video.fps}`,
     ...cropScaleFilter(source, target),
     `format=${target.video.color}`,
-    `brightness=0.5`
+    `eq=brightness=0.5`
   ];
 
   args.push("-vf", filter.join(","));

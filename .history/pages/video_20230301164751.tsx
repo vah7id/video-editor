@@ -15,8 +15,6 @@ import {
   AudioFormatSelect,
   VideoFormatSelect,
 } from "../components/video_format_selects";
-import { gtag, install } from 'ga-gtag';
-
 import { VideoTimeline } from "../components/video_timeline";
 import { ensureFreshFfmpegInstance } from "../src/ffmpeg";
 import { t } from "../src/intl";
@@ -55,7 +53,6 @@ export default function VideoPage() {
   useEffect(() => {
     setProgress(undefined);
     setLastFormat(undefined);
-    gtag('G-9S7PGDK85T');
     setResult(undefined);
     if (!video) {
       Router.push("/").catch(console.error);

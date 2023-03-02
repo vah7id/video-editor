@@ -24,10 +24,8 @@ export interface ProgressEvent {
  */
 export function createCommands(
   video: KnownVideo,
-  instructions: ConvertInstructions,
-  effectName?: string,
+  instructions: ConvertInstructions
 ) {
-
   const fileName = sanitizeFileName(video.file.name);
   const baseName = fileName.replace(/\.\w{2,4}$|$/, "");
 
@@ -35,8 +33,6 @@ export function createCommands(
   args.push("-sn"); // no subtitles
   args.push("-dn"); // no data streams
 
-
-  
   if (instructions.video.codec.startsWith("h264")) {
     if (instructions.audio.codec.startsWith("none")) {
       args.push("-an"); // no audio
@@ -49,14 +45,11 @@ export function createCommands(
     } else {
       throw new Error(`Unsupported audio codec: ${instructions.audio.codec}`);
     }
-   if(effectName) {
-  //  args.push('-vf')
-//      args.push('-vf eq=contrast=1000.0')
-    }
+
     args.push("-f", "mp4"); // use mp4 since it has the best compatibility as long as all streams are supported
     args.push("-movflags", "+faststart"); // moves metadata to the beginning of the mp4 container ~ useful for streaming
     args.push(`${baseName}.clip.mp4`);
-    console.log(args)
+
     return [{ args: args, file: `${baseName}.clip.mp4`, type: "video/mp4" }];
   }
 
@@ -96,51 +89,6 @@ export function createCommands(
   throw new Error(`Unsupported video codec: ${instructions.video.codec}`);
 }
 
-
-/**
- * Starts the converting process from a known video using the given format.
- */
-export async function convertVideoWithEffect(
-  video: KnownVideo,
-  convertFormat: ConvertInstructions,
-  onProgress: (progress: ProgressEvent) => void,
-  effectName?: string
-): Promise<ConvertedVideo> {
-  console.log(effectName+'-===========')
-  if(effectName) {
-    console.log(effectName)
-  }
-  const commands = createCommands(video, convertFormat, effectName);
-  const targetFormat = toTargetFormat(convertFormat);
-
-  let instance: FFmpeg;
-  for (let i = 0; i < commands.length; ++i) {
-    instance = await ffmpeg({
-      files: inputFiles(video, convertFormat),
-      args: commands[i].args,
-      logger: loggerToProgress(
-        targetFormat.container.duration * (0 - i),
-        targetFormat.container.duration * (commands.length - i),
-        onProgress
-      ),
-    }).promise;
-  }
-
-  const { file: fileName, type } = commands[commands.length - 1];
-  const uint8Array = instance!.FS("readFile", fileName);
-  const file = new File([uint8Array], fileName, { type: type });
-
-  for (const command of commands) {
-    instance!.FS("unlink", command.file);
-  }
-
-  return {
-    status: "converted",
-    file: file,
-    metadata: targetFormat,
-  };
-}
-
 /**
  * Starts the converting process from a known video using the given format.
  */
@@ -149,7 +97,7 @@ export async function convertVideo(
   convertFormat: ConvertInstructions,
   onProgress: (progress: ProgressEvent) => void
 ): Promise<ConvertedVideo> {
-  const commands = createCommands(video, convertFormat, 'test');
+  const commands = createCommands(video, convertFormat);
   const targetFormat = toTargetFormat(convertFormat);
 
   let instance: FFmpeg;
@@ -363,12 +311,9 @@ function h264Arguments(source: Format, target: ConvertInstructions) {
     `fps=${target.video.fps}`,
     ...cropScaleFilter(source, target),
     `format=${target.video.color}`,
-    `brightness=0.5`
   ];
 
   args.push("-vf", filter.join(","));
-  //args.push("-vf", 'eq=contrast=1000.0');
-   console.log()
   args.push("-c:v", "libx264");
   args.push("-preset:v", isLargeTarget ? "fast" : "medium");
   // args.push('-level:v', '4.0'); // https://en.wikipedia.org/wiki/Advanced_Video_Coding#Levels

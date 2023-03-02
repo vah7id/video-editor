@@ -55,7 +55,6 @@ export default function VideoPage() {
   useEffect(() => {
     setProgress(undefined);
     setLastFormat(undefined);
-    gtag('G-9S7PGDK85T');
     setResult(undefined);
     if (!video) {
       Router.push("/").catch(console.error);

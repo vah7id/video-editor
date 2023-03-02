@@ -15,8 +15,6 @@ import {
   AudioFormatSelect,
   VideoFormatSelect,
 } from "../components/video_format_selects";
-import { gtag, install } from 'ga-gtag';
-
 import { VideoTimeline } from "../components/video_timeline";
 import { ensureFreshFfmpegInstance } from "../src/ffmpeg";
 import { t } from "../src/intl";
@@ -29,7 +27,6 @@ import {
   getAudioFormats,
   getVideoFormats,
   ProgressEvent,
-  convertVideoWithEffect,
 } from "../src/video";
 import { VideoContext } from "./_app";
 import { useObjectURL } from "../src/use_object_url";
@@ -55,7 +52,6 @@ export default function VideoPage() {
   useEffect(() => {
     setProgress(undefined);
     setLastFormat(undefined);
-    gtag('G-9S7PGDK85T');
     setResult(undefined);
     if (!video) {
       Router.push("/").catch(console.error);
@@ -84,7 +80,7 @@ export default function VideoPage() {
       trackEvent("convert-start", presetStr, formatStr);
       setProgress({ percent: 0 });
       setLastFormat(format);
-      const convertedVideo = await convertVideoWithEffect(video, format, setProgress, effectName);
+      const convertedVideo = await convertVideoWithEffect(video, format, setProgress);
       trackEvent(
         "convert-effect-finish",
         presetStr,

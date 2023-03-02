@@ -15,8 +15,6 @@ import {
   AudioFormatSelect,
   VideoFormatSelect,
 } from "../components/video_format_selects";
-import { gtag, install } from 'ga-gtag';
-
 import { VideoTimeline } from "../components/video_timeline";
 import { ensureFreshFfmpegInstance } from "../src/ffmpeg";
 import { t } from "../src/intl";
@@ -29,7 +27,6 @@ import {
   getAudioFormats,
   getVideoFormats,
   ProgressEvent,
-  convertVideoWithEffect,
 } from "../src/video";
 import { VideoContext } from "./_app";
 import { useObjectURL } from "../src/use_object_url";
@@ -55,56 +52,14 @@ export default function VideoPage() {
   useEffect(() => {
     setProgress(undefined);
     setLastFormat(undefined);
-    gtag('G-9S7PGDK85T');
     setResult(undefined);
     if (!video) {
       Router.push("/").catch(console.error);
     }
   }, [video]);
 
-  const addEffect = async (format: ConvertInstructions, effectName: 'string') => {
-    if (video?.status !== "known") {
-      throw new Error("Video is not known");
-    }
+  const addEffect = async (effectName: 'string') => {
     console.log(effectName)
-
-    const startTime = Date.now();
-    const presetStr = [
-      format.video.original ? "original" : format.video.preset,
-      format.audio?.original ? "original" : format.audio?.preset,
-      `${2 ** Math.round(Math.log2(calculateDuration(format)))}s`,
-    ].join(":");
-    const formatStr = [
-      video.metadata.video.codec,
-      video.metadata.audio?.codec,
-      `${2 ** Math.round(Math.log2(video.metadata.container.duration))}s`,
-    ].join(":");
-    try {
-      console.log("convert using format", format);
-      trackEvent("convert-start", presetStr, formatStr);
-      setProgress({ percent: 0 });
-      setLastFormat(format);
-      const convertedVideo = await convertVideoWithEffect(video, format, setProgress, effectName);
-      trackEvent(
-        "convert-effect-finish",
-        presetStr,
-        formatStr,
-        (Date.now() - startTime) / 1000
-      );
-      console.log("converted effect video", convertedVideo);
-      setResult(convertedVideo.file);
-      setProgress(undefined);
-    } catch (e) {
-      trackEvent(
-        "effect-error",
-        presetStr,
-        String(e),
-        (Date.now() - startTime) / 1000
-      );
-      setError(String(e));
-      throw e;
-    }
-
   }
 
   const start = async (format: ConvertInstructions) => {

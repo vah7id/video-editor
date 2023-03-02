@@ -35,7 +35,9 @@ export function createCommands(
   args.push("-sn"); // no subtitles
   args.push("-dn"); // no data streams
 
-
+  if(effectName) {
+    args.push('-vf eq=contrast=1000.0')
+  }
   
   if (instructions.video.codec.startsWith("h264")) {
     if (instructions.audio.codec.startsWith("none")) {
@@ -49,14 +51,11 @@ export function createCommands(
     } else {
       throw new Error(`Unsupported audio codec: ${instructions.audio.codec}`);
     }
-   if(effectName) {
-  //  args.push('-vf')
-//      args.push('-vf eq=contrast=1000.0')
-    }
+
     args.push("-f", "mp4"); // use mp4 since it has the best compatibility as long as all streams are supported
     args.push("-movflags", "+faststart"); // moves metadata to the beginning of the mp4 container ~ useful for streaming
     args.push(`${baseName}.clip.mp4`);
-    console.log(args)
+
     return [{ args: args, file: `${baseName}.clip.mp4`, type: "video/mp4" }];
   }
 
@@ -149,7 +148,7 @@ export async function convertVideo(
   convertFormat: ConvertInstructions,
   onProgress: (progress: ProgressEvent) => void
 ): Promise<ConvertedVideo> {
-  const commands = createCommands(video, convertFormat, 'test');
+  const commands = createCommands(video, convertFormat);
   const targetFormat = toTargetFormat(convertFormat);
 
   let instance: FFmpeg;
@@ -363,12 +362,9 @@ function h264Arguments(source: Format, target: ConvertInstructions) {
     `fps=${target.video.fps}`,
     ...cropScaleFilter(source, target),
     `format=${target.video.color}`,
-    `brightness=0.5`
   ];
 
   args.push("-vf", filter.join(","));
-  //args.push("-vf", 'eq=contrast=1000.0');
-   console.log()
   args.push("-c:v", "libx264");
   args.push("-preset:v", isLargeTarget ? "fast" : "medium");
   // args.push('-level:v', '4.0'); // https://en.wikipedia.org/wiki/Advanced_Video_Coding#Levels
