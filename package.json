@@ -15,7 +15,6 @@
     "@ffmpeg/core": "0.11.0",
     "@ffmpeg/ffmpeg": "0.11.6",
     "classnames": "^2.3.1",
-    "ga-gtag": "^1.1.7",
     "i18next": "^21.6.3",
     "next": "^13.0.7",
     "react": "^18.2.0",
@@ -28,11 +27,13 @@
     "use-local-storage": "^2.2.6"
   },
   "devDependencies": {
+    "@types/gtag.js": "0.0.12",
     "@types/react": "17.0.38",
     "autoprefixer": "^10.4.0",
     "eslint": "8.5.0",
     "eslint-config-next": "12.0.7",
     "eslint-config-prettier": "^8.3.0",
+    "ga-gtag": "^1.1.7",
     "i18next-parser": "^5.3.0",
     "jest": "^27.4.5",
     "postcss": "^8.4.5",

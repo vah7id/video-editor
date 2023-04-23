@@ -8,7 +8,8 @@ import { analyzeVideo, createVideo, Video } from "../src/video";
 import "../styles/globals.css";
 import { setLocale } from "../src/intl";
 import Script from "next/script";
-const install = require('ga-gtag');
+declare module 'ga-gtag
+import { gtag, install } from 'ga-gtag';
 
 export type VideoState = [
   Video | undefined,

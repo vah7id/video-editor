@@ -15,7 +15,7 @@ import {
   AudioFormatSelect,
   VideoFormatSelect,
 } from "../components/video_format_selects";
-const install = require('ga-gtag');
+import { gtag, install } from 'ga-gtag';
 
 import { VideoTimeline } from "../components/video_timeline";
 import { ensureFreshFfmpegInstance } from "../src/ffmpeg";

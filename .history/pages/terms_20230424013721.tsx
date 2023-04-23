@@ -14,7 +14,7 @@ import { DemoTimeline } from "../components/demo";
 import { Link } from "../components/link";
 import Image from "next/image";
 import logo1 from '../public/logo1.png';
-const install = require('ga-gtag');
+import { gtag, install } from 'ga-gtag';
 
 export default function Start() {
   const [video, setVideo] = useContext(VideoContext);
