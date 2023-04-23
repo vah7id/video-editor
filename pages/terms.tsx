@@ -14,6 +14,7 @@ import { DemoTimeline } from "../components/demo";
 import { Link } from "../components/link";
 import Image from "next/image";
 import logo1 from '../public/logo1.png';
+import { gtag, install } from 'ga-gtag';
 
 export default function Start() {
   const [video, setVideo] = useContext(VideoContext);
@@ -23,6 +24,7 @@ export default function Start() {
   const { pathname } = useRouter();
 
   useEffect(() => {
+    install('G-9S7PGDK85T');
     ensureFreshFfmpegInstance((e) => setError(String(e)));
     Router.prefetch("/video").catch(console.error);
   }, []);

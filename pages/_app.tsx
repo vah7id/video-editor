@@ -8,6 +8,7 @@ import { analyzeVideo, createVideo, Video } from "../src/video";
 import "../styles/globals.css";
 import { setLocale } from "../src/intl";
 import Script from "next/script";
+import { gtag, install } from 'ga-gtag';
 
 export type VideoState = [
   Video | undefined,
@@ -34,6 +35,7 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
 
   const canonicalUrl = `${process.env.NEXT_PUBLIC_HOST}/${router.locale}${router.pathname}`;
   useEffect(() => {
+    install('G-9S7PGDK85T');
     trackPageView(canonicalUrl);
   }, [canonicalUrl]);
 
