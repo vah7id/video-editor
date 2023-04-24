@@ -79,6 +79,14 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
     <>
       <Head>
         <link key="canonical" rel="canonical" href={canonicalUrl} />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9S7PGDK85T"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-9S7PGDK85T');
+        </script>
         <link
           key="x-default"
           rel="alternate"

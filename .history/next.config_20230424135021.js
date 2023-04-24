@@ -18,7 +18,7 @@ module.exports = (phase) => ({
   headers() {
     return [
       {
-        source: "/(.*)",
+        source: "/video",
         locale: false,
         headers: [
           {

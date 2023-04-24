@@ -79,6 +79,7 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
     <>
       <Head>
         <link key="canonical" rel="canonical" href={canonicalUrl} />
+        
         <link
           key="x-default"
           rel="alternate"
@@ -95,7 +96,6 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
         ))}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      
       <VideoContext.Provider value={[video, setVideoFile]}>
         <Component {...pageProps} />
       </VideoContext.Provider>

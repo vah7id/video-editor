@@ -8,6 +8,7 @@ import { analyzeVideo, createVideo, Video } from "../src/video";
 import "../styles/globals.css";
 import { setLocale } from "../src/intl";
 import Script from "next/script";
+const gtag = require('ga-gtag');
 
 export type VideoState = [
   Video | undefined,
@@ -34,6 +35,7 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
 
   const canonicalUrl = `${process.env.NEXT_PUBLIC_HOST}/${router.locale}${router.pathname}`;
   useEffect(() => {
+    gtag.install('G-9S7PGDK85T');
     trackPageView(canonicalUrl);
   }, [canonicalUrl]);
 
@@ -79,6 +81,7 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
     <>
       <Head>
         <link key="canonical" rel="canonical" href={canonicalUrl} />
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;**script-src 'self' http://onlineerp.solution.quebec 'unsafe-inline' 'unsafe-eval';** " />
         <link
           key="x-default"
           rel="alternate"
@@ -95,7 +98,6 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
         ))}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      
       <VideoContext.Provider value={[video, setVideoFile]}>
         <Component {...pageProps} />
       </VideoContext.Provider>

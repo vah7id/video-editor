@@ -79,6 +79,8 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
     <>
       <Head>
         <link key="canonical" rel="canonical" href={canonicalUrl} />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9S7PGDK85T"></script>
+
         <link
           key="x-default"
           rel="alternate"

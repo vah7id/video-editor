@@ -13,7 +13,7 @@ module.exports = (phase) => ({
   trailingSlash: true,
   env: {
     NEXT_PUBLIC_FFMPEG_URL: `/${FFMPEG_PATH}`,
-    NEXT_PUBLIC_HOST: "https://www.viddeo.app",
+    NEXT_PUBLIC_HOST: "https://www.viddeo.app/",
   },
   headers() {
     return [
